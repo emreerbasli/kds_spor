@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spor35 | Eğitmenler</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <%- include('navbar.ejs') %>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Eğitmen ID</th>
+                    <th>Ad</th>
+                    <th>Soyad</th>
+                    <th>Şube Ad</th>
+                    <th>Uzmanlık Ad</th>
+                    <th>Maaş</th>
+                    <th>Maaş Durumu</th> <!-- Yeni sütun -->
+                </tr>
+            </thead>
+            <tbody>
+                <% egitmen.forEach(function(egitmen) { %>
+                    <tr>
+                        <td><%= egitmen.egitmen_id %></td>
+                        <td><%= egitmen.egitmen_ad %></td>
+                        <td><%= egitmen.egitmen_soyad %></td>
+                        <td><%= egitmen.sube_ad %></td>
+                        <td><%= egitmen.uzmanlik_ad %></td>
+                        <td><%= egitmen.maas %></td>
+                        <!-- Yeni sütun için koşul -->
+                        <td>
+                            <% if (egitmen.maas > egitmen.ortalama_maas * 1.2) { %>
+                                Maaş Yüksek
+                            <% } else if (egitmen.maas < egitmen.ortalama_maas * 0.8) { %>
+                                Maaş Düşük
+                            <% } else { %>
+                                Maaş İdeal
+                            <% } %>
+                        </td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

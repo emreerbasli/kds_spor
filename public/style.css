@@ -1,0 +1,112 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background-image: url('./bg.jpg'); /* Arka plan fotoğrafı */
+	background-size: cover; /* Resmi ekran boyutuna sığacak şekilde ayarla */
+	background-position: center; /* Resmi ortala */
+	color: #333;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+  }
+  
+
+  
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background-color: #808080; /* Modern arkaplan rengi */
+	color: rgba(255, 255, 255, 0.9); /* Metin rengi */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+  }
+  
+  .container {
+	width: 90%;
+	max-width: 400px; /* Maksimum genişlik */
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.6);
+	padding: 40px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Hafif gölge */
+  }
+  
+  h1 {
+	font-size: 2.5em;
+	margin-bottom: 10px;
+	color: rgba(255, 255, 255, 0.9); /* Modern başlık rengi */
+  }
+  
+  p {
+	font-size: 1.2em;
+	margin-bottom: 30px;
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  button {
+	width: 100%;
+	padding: 12px;
+	margin-bottom: 20px;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	box-sizing: border-box;
+	transition: border-color 0.3s ease;
+  }
+  
+  input[type="text"]:focus,
+  input[type="password"]:focus {
+	outline: none;
+	border-color: black; /* Odaklandığında sınır rengi */
+  }
+  
+  button {
+	background-color: rgba(255, 255, 255, 0.9); /* Modern buton arkaplan rengi */
+	color: black;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+	background-color: rgba(70, 64, 64, 0.651); /* Buton üzerine gelindiğindeki arkaplan rengi */
+  }
+  .form-options {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+  }
+  
+  .form-options label {
+	font-size: 0.9em;
+  }
+  
+  .form-options a {
+	text-decoration: none;
+	color: rgba(255, 255, 255, 0.9);
+	font-size: 0.9em;
+	transition: color 0.3s ease;
+  }
+  
+  .form-options a:hover {
+	color: black;
+  }
+  .content h1 {
+	border-bottom: 4px solid rgba(255, 255, 255, 0.9);
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+  }
+  .content p {
+	background-color: rgba(0, 0, 0, 1); /* Saydamlık eklenmiş arka plan rengi */
+	padding: 10px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  

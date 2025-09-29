@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+ <meta charset="UTF-8">
+ <title>Spor35 | Üye Listesi</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+ <title>Spor35 | Üye Listesi</title>
+</head>
+<%- include('navbar.ejs') %>
+<div class="table-container">
+  <table>
+      <thead>
+        <tr>
+          <th>Üye ID</th>
+          <th>Ad</th>
+          <th>Soyad</th>
+          <th>Şube Ad</th>
+          <th>Kurs Ad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% uye.forEach(function(uye) { %>
+          <tr>
+            <td><%= uye.uye_id %></td>
+            <td><%= uye.uye_ad %></td>
+            <td><%= uye.uye_soyad %></td>
+            <td><%= uye.sube_ad %></td>
+            <td><%= uye.kurs_ad %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+  </table>
+</div>
+</body>
+</html>

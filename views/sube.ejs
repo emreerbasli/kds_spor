@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+ <meta charset="UTF-8">
+ <title>Spor35 | Şubeler</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+ <link rel="stylesheet" href="styles.css">
+ <style>
+  .red-row {
+    background-color: #ffcccc; /* Açık kırmızı */
+  }
+
+  .yellow-row {
+    background-color: #fff3cd; /* Açık sarı */
+  }
+
+  .green-row {
+    background-color: #d4edda; /* Açık yeşil */
+  }
+</style>
+
+ <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ <title>Spor35 | Şubeler</title>
+</head>
+<%- include('navbar.ejs') %>
+  <form action="/sube_aciklama" method="POST" style="display: flex; flex-direction: column; align-items: center;">
+    <label for="deger" style="margin-top: 20px; margin-bottom: 5px; font-weight: bold; font-size: 30px;">Şube Karar Destek Sistemi</label>
+    
+    <input type="text" id="deger" name="deger" placeholder="Beklenilen kâr" required style="width: 150px; margin-top: 20px; padding: 10px; border-radius: 5px; border: 1px solid #000000;">
+    <input type="text" id="esne" name="esne" placeholder="Esneklik payı %" required style="width: 150px; margin-top: 20px; padding: 10px; border-radius: 5px; border: 1px solid #000000;">
+    <button type="submit" style="margin-top: 10px; padding: 5px 10px; border: none; border-radius: 5px; background-color: black; color: white; cursor: pointer;">İncele</button>
+  </form>
+
+
+
+<div class="table-container">
+  <table>
+      <thead>
+        <tr>
+          <th>Şube ID</th>
+          <th>Şube Ad</th>
+          <th>Şube Gelir</th>
+          <th>Şube Gider</th>
+          <th>Şube Kar</th>
+          <th>Değerlendirme</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% sube.forEach(function(sube) { %>
+          <tr class="<%= sube.aciklama === 'Şube Kapatılabilir.' ? 'red-row' : sube.aciklama === 'Şube Stabil.' ? 'yellow-row' : sube.aciklama === 'Yeni Şube Açılabilir.' ? 'green-row' : '' %>">
+            <td><%= sube.sube_id %></td>
+            <td><%= sube.sube_ad %></td>
+            <td><%= sube.gelir %></td>
+            <td><%= sube.gider %></td>
+            <td><%= sube.gelir - sube.gider %></td>
+            <td><%= sube.aciklama %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+      
+  </table>
+</div>
+</body>
+</html>

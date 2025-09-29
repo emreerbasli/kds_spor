@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spor35 | Grafikler</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <%- include('navbar.ejs') %>
+
+
+  <div style="display: flex; justify-content: flex-end; padding-right: 150px;">
+      <div style="display: flex; flex-direction: column; height: 100vh; width: 80%; padding: 20px;">
+          <div style="display: flex; justify-content: space-between; height: 45%; margin-bottom: 20px;">
+              <div style="flex-basis: 48%; border: 1px solid black;">
+                  <canvas id="myChart3" style="width: 100%; height: 100%;"></canvas>
+              </div>
+              <div style="flex-basis: 48%; border: 1px solid black;">
+                  <canvas id="myChart1" style="width: 100%; height: 100%;"></canvas>
+              </div>
+          </div>
+          <div style="display: flex; justify-content: space-between; height: 45%;">
+              <div style="flex-basis: 48%; border: 1px solid black;">
+                  <canvas id="myChart" style="width: 100%; height: 100%;"></canvas>
+              </div>
+              <div style="flex-basis: 48%; border: 1px solid black;">
+                  <canvas id="myChart2" style="width: 100%; height: 100%;"></canvas>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  
+ 
+  
+  
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/sube_sayisi')
+                .then(response => response.json())
+                .then(veri => {
+                    const subeler = veri.map(item => item.sube_ad);
+                    const gelir = veri.map(item => item.net_gelir);
+
+                    const ctx = document.getElementById('myChart').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: subeler,
+                            datasets: [{
+                                label: 'Kâr Grafiği',
+                                data: gelir,
+                                backgroundColor: 'rgba(0, 0, 0, 0.65)',
+                                borderColor: 'rgba(0, 0, 0, 1)',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                })
+                .catch(error => console.error('Error fetching chart data:', error));
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/uye_sayisi')
+                .then(response => response.json())
+                .then(veri => {
+                    const kurs = veri.map(item => item.kurs_ad);
+                    const sayi = veri.map(item => item.uye_sayisi);
+
+                    const ctx = document.getElementById('myChart1').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: kurs,
+                            datasets: [{
+                                label: 'Kurs - Üye Grafiği',
+                                data: sayi,
+                                backgroundColor: 'rgba(0, 0, 0, 0.65)',
+                                borderColor: 'rgba(0, 0, 0, 1)',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                })
+                .catch(error => console.error('Error fetching chart data:', error));
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            fetch('/kurs_ucret')
+                .then(response => response.json())
+                .then(veri => {
+                    const kurs = veri.map(item => item.kurs_ad);
+                    const ucret = veri.map(item => item.kurs_ucret);
+
+                    const ctx = document.getElementById('myChart3').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: kurs,
+                            datasets: [{
+                                label: 'Kurs - Ücret Grafiği',
+                                data: ucret,
+                                backgroundColor: 'rgba(0, 0, 0, 0.65)',
+                                borderColor: 'rgba(0, 0, 0, 1)',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                    });
+                })
+                .catch(error => console.error('Error fetching chart data:', error));
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+    fetch('/sube_uye')
+        .then(response => response.json())
+        .then(veri => {
+            const sube = veri.map(item => item.sube_ad);
+            const sayi = veri.map(item => item.uye_sayisi);
+
+            const ctx = document.getElementById('myChart2').getContext('2d');
+            new Chart(ctx, {
+                type: 'line', // Değişiklik burada
+                data: {
+                    labels: sube,
+                    datasets: [{
+                        label: 'Şube - Üye Grafiği',
+                        data: sayi,
+                        backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                        borderColor: 'rgba(0, 0, 0, 1)',
+                        borderWidth: 1,
+                        fill: false // Line grafiğinde fill kullanılmaz
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            stepSize: 2
+                        }
+                    }
+                }
+            });
+        })
+        .catch(error => console.error('Error fetching chart data:', error));
+});
+
+        
+    </script>
+</body>
+</html>
