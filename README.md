@@ -8,6 +8,7 @@ YÖNETİCİ GİRİŞ PANELİ
 GRAFİKLER SEKMESİ
 
 <img width="856" height="481" alt="image" src="https://github.com/user-attachments/assets/bdafa42c-ca7d-4574-9e2c-a2ecc75b5461" />
+
 Üst bölümdeki iki grafik, kurslarla ilgili dinamik bilgileri; alt bölümdeki iki grafik ise şubelere ilişkin dinamik bilgileri görselleştirmektedir.
 Sol üstteki grafikte kurs ücretleri, sağındaki grafikte ise her kurstaki üye sayıları gösterilmektedir. Sol altta, şubelerin son 6 ay içerisinde üyelerden elde ettiği gelirlerden eğitmenlere yapılan giderlerin çıkarılmasıyla hesaplanan kâr grafiği yer alırken, sağ alt köşede ise şube başına düşen üye sayısı görselleştirilmiştir.
 
@@ -25,6 +26,7 @@ EĞİTMENLER SEKMESİ
 ŞUBE SEKMESİ
 
 <img width="856" height="481" alt="image" src="https://github.com/user-attachments/assets/8c8fde75-49b3-4c70-a710-67a49ceb8a29" />
+
 Şubenin performansına dayalı karar destek işlevi, "Şubeler" sekmesinde sunulur. Orta düzey yönetici, 6 aylık kar hedefini ve bir esneklik payını (örneğin %10) sisteme girer.
 Karar Destek Senaryoları
 Yeni Şube Fırsatı: Karın hedefi esneklik payı kadar aşan şubeler, yüksek talep nedeniyle yeni şube açma fırsatı olarak değerlendirilir.
